@@ -1,0 +1,667 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodConnect | Share Food, Share Hope</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+            background: #fffaf3;
+            color: #333;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            background: #222;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            font-family: "DM Serif Display", serif;
+            color: #f59e0b;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #f59e0b;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.55)),
+                url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: "DM Serif Display", serif;
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #d97706;
+        }
+
+        /* ================= GENERAL SECTIONS ================= */
+
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-family: "DM Serif Display", serif;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* ================= STORY ================= */
+
+        .story {
+            background: white;
+        }
+
+        /* ================= HOW IT WORKS ================= */
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .step span {
+            font-size: 40px;
+        }
+
+        .step h3 {
+            margin: 15px 0 10px;
+        }
+
+        /* ================= IMPACT ================= */
+
+        .impact {
+            background: #fff3cd;
+        }
+
+        .impact-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .impact-box {
+            background: white;
+            padding: 25px;
+            width: 220px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .impact-box h3 {
+            font-size: 32px;
+            color: #f59e0b;
+        }
+
+        /* ================= DRAG AND DROP ================= */
+
+        .donate-section {
+            background: white;
+            text-align: center;
+        }
+
+        .food-items {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 35px 0;
+        }
+
+        .food-item {
+            padding: 15px 25px;
+            background: #f59e0b;
+            color: white;
+            border-radius: 10px;
+            cursor: grab;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .food-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .food-item:active {
+            cursor: grabbing;
+        }
+
+        .drop-zone {
+            width: 80%;
+            max-width: 600px;
+            min-height: 180px;
+            margin: 30px auto;
+            border: 3px dashed #f59e0b;
+            border-radius: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            transition: 0.3s;
+        }
+
+        .drop-zone h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .drop-zone.drag-over {
+            background: #fff3cd;
+            transform: scale(1.03);
+        }
+
+        #dropMessage {
+            color: green;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            margin: 10px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .drop-zone {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header>
+        <nav>
+            <h2>FoodConnect</h2>
+
+            <ul>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>Share Food, Share Hope</h1>
+
+                <p>
+                    Connecting surplus food with people who need it.
+                    Together, we can reduce food waste and fight hunger.
+                </p>
+
+                <a href="#donate" class="btn">
+                    Donate Food
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STORY ================= -->
+
+        <section id="story" class="story">
+
+            <h2>Our Story</h2>
+
+            <p class="section-text">
+                Every day, restaurants, hotels and events have surplus
+                food that may otherwise go to waste. At the same time,
+                many people struggle to find their next meal.
+                FoodConnect helps bridge this gap by connecting
+                food donors with NGOs and communities.
+            </p>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section id="how">
+
+            <h2>How It Works</h2>
+
+            <p class="section-text">
+                Food donation can be simple and meaningful.
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <span>🍽️</span>
+                    <h3>1. Donate</h3>
+                    <p>
+                        Restaurants add their surplus food.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>🤝</span>
+                    <h3>2. Connect</h3>
+                    <p>
+                        FoodConnect connects donors with NGOs.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>🚚</span>
+                    <h3>3. Deliver</h3>
+                    <p>
+                        Volunteers collect and distribute the food.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>❤️</span>
+                    <h3>4. Impact</h3>
+                    <p>
+                        Surplus food reaches people who need it.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= IMPACT ================= -->
+
+        <section id="impact" class="impact">
+
+            <h2>Our Impact</h2>
+
+            <p class="section-text">
+                Small donations can create meaningful change.
+            </p>
+
+            <div class="impact-boxes">
+
+                <div class="impact-box">
+                    <h3>500+</h3>
+                    <p>Meals Shared</p>
+                </div>
+
+                <div class="impact-box">
+                    <h3>50+</h3>
+                    <p>Food Donors</p>
+                </div>
+
+                <div class="impact-box">
+                    <h3>20+</h3>
+                    <p>NGO Partners</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DRAG AND DROP ================= -->
+
+        <section id="donate" class="donate-section">
+
+            <h2>Donate Surplus Food</h2>
+
+            <p class="section-text">
+                Select a food item and drag it into the donation box.
+            </p>
+
+
+            <!-- Draggable Items -->
+
+            <div class="food-items">
+
+                <div class="food-item"
+                     draggable="true"
+                     id="rice">
+                    🍚 Rice
+                </div>
+
+                <div class="food-item"
+                     draggable="true"
+                     id="bread">
+                    🍞 Bread
+                </div>
+
+                <div class="food-item"
+                     draggable="true"
+                     id="meals">
+                    🍱 Meals
+                </div>
+
+                <div class="food-item"
+                     draggable="true"
+                     id="fruits">
+                    🍎 Fruits
+                </div>
+
+                <div class="food-item"
+                     draggable="true"
+                     id="vegetables">
+                    🥕 Vegetables
+                </div>
+
+            </div>
+
+
+            <!-- Drop Area -->
+
+            <div id="dropZone" class="drop-zone">
+
+                <h3>🍽️ Drop Food Here</h3>
+
+                <p>
+                    Drag a food item and drop it here
+                </p>
+
+            </div>
+
+            <p id="dropMessage"></p>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="contact">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Want to donate food or become an NGO partner?
+            </p>
+
+            <p>
+                📧 foodconnect@example.com
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 FoodConnect | Share Food, Share Hope
+        </p>
+
+    </footer>
+
+
+    <!-- ================= DRAG AND DROP JAVASCRIPT ================= -->
+
+    <script>
+
+        // Get all draggable food items
+        const foodItems =
+            document.querySelectorAll(".food-item");
+
+        // Get drop zone
+        const dropZone =
+            document.getElementById("dropZone");
+
+        // Get message area
+        const dropMessage =
+            document.getElementById("dropMessage");
+
+
+        // -----------------------------------------
+        // DRAGSTART EVENT
+        // -----------------------------------------
+
+        foodItems.forEach(function(item) {
+
+            item.addEventListener("dragstart", function(event) {
+
+                // Store the ID of dragged item
+                event.dataTransfer.setData(
+                    "text/plain",
+                    event.target.id
+                );
+
+            });
+
+        });
+
+
+        // -----------------------------------------
+        // DRAGOVER EVENT
+        // -----------------------------------------
+
+        dropZone.addEventListener("dragover", function(event) {
+
+            // Required to allow dropping
+            event.preventDefault();
+
+            dropZone.classList.add("drag-over");
+
+        });
+
+
+        // -----------------------------------------
+        // DRAGLEAVE EVENT
+        // -----------------------------------------
+
+        dropZone.addEventListener("dragleave", function() {
+
+            dropZone.classList.remove("drag-over");
+
+        });
+
+
+        // -----------------------------------------
+        // DROP EVENT
+        // -----------------------------------------
+
+        dropZone.addEventListener("drop", function(event) {
+
+            // Stop browser's default action
+            event.preventDefault();
+
+            dropZone.classList.remove("drag-over");
+
+
+            // Get dragged item's ID
+            const foodId =
+                event.dataTransfer.getData("text/plain");
+
+
+            // Find the dragged element
+            const foodItem =
+                document.getElementById(foodId);
+
+
+            // Get food name
+            const foodName =
+                foodItem.textContent.trim();
+
+
+            // Display success message
+            dropMessage.textContent =
+                "✅ " + foodName +
+                " added to your donation!";
+
+
+            // Change drop zone
+            dropZone.innerHTML = `
+                <h3>✅ Food Added!</h3>
+                <p>${foodName} is ready for donation.</p>
+            `;
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>FoodConnect | Share Food, Share Hope</title>
 
     <!-- ================= GOOGLE FONTS ================= -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <style>
 
         /* ==================================================
            GENERAL
         ================================================== */
+
         html {
             scroll-behavior: smooth;
         }
+
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
+
             font-family: 'Poppins', sans-serif;
+
             color: #29251f;
+
             background: #f6f1e5;
         }
+
         a {
             text-decoration: none;
         }
@@ -34,970 +51,1624 @@
         /* ==================================================
            NAVBAR
         ================================================== */
+
         .navbar {
+
             height: 72px;
+
             padding: 0 6%;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             background: #17140f;
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
         }
+
         .logo {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 30px;
+
             color: white;
         }
+
         .logo span {
+
             color: #e99a27;
         }
+
         .nav-links {
+
             display: flex;
+
             gap: 28px;
         }
+
         .nav-links a {
+
             color: white;
+
             font-size: 12px;
+
             font-weight: 600;
+
             transition: 0.3s;
         }
+
         .nav-links a:hover {
+
             color: #e99a27;
         }
+
         .nav-button {
+
             background: #df8d1b;
+
             color: white;
+
             padding: 11px 20px;
+
             border-radius: 30px;
+
             font-size: 12px;
+
             font-weight: 700;
+
             transition: 0.3s;
         }
+
         .nav-button:hover {
+
             transform: scale(1.05);
+
             background: #f2a533;
         }
+
 
         /* ==================================================
            HERO
         ================================================== */
+
         .hero {
+
             height: 700px;
+
             position: relative;
+
             overflow: hidden;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
+
             background:
+
                 linear-gradient(
                     rgba(20, 15, 8, 0.63),
                     rgba(20, 15, 8, 0.78)
                 ),
+
                 url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1800&q=80");
+
             background-size: cover;
+
             background-position: center;
         }
+
         .hero-content {
+
             position: relative;
+
             z-index: 5;
+
             color: white;
+
             max-width: 900px;
+
             padding: 30px;
+
             animation: fadeUp 1s ease;
         }
+
         .small-heading {
+
             color: #efa12b;
+
             font-size: 13px;
+
             letter-spacing: 4px;
+
             font-weight: 700;
         }
+
         .hero h1 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: clamp(55px, 8vw, 100px);
+
             line-height: 0.95;
+
             margin: 25px 0;
         }
+
         .hero h1 span {
+
             color: #f2a22d;
         }
+
         .hero-text {
+
             font-size: 20px;
+
             line-height: 1.7;
+
             color: #eee;
+
             margin-bottom: 35px;
         }
+
         .hero-buttons {
+
             display: flex;
+
             justify-content: center;
+
             gap: 15px;
+
             flex-wrap: wrap;
         }
+
         .main-button {
+
             background: #e7921b;
+
             color: white;
+
             padding: 16px 28px;
+
             border-radius: 40px;
+
             font-weight: 700;
+
             transition: 0.3s;
+
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
+
         .main-button:hover {
+
             transform: translateY(-4px);
+
             background: #f4a533;
         }
+
         .outline-button {
+
             color: white;
+
             border: 1px solid white;
+
             padding: 16px 28px;
+
             border-radius: 40px;
+
             font-weight: 600;
+
             transition: 0.3s;
         }
+
         .outline-button:hover {
+
             background: white;
+
             color: #222;
         }
+
 
         /* ==================================================
            FLOATING FOOD
         ================================================== */
+
         .floating-food {
+
             position: absolute;
+
             font-size: 42px;
+
             opacity: 0.7;
+
             animation: floating 5s ease-in-out infinite;
+
             z-index: 3;
         }
+
         .food1 {
+
             left: 8%;
+
             top: 20%;
         }
+
         .food2 {
+
             left: 15%;
+
             bottom: 18%;
+
             animation-delay: 1s;
         }
+
         .food3 {
+
             right: 10%;
+
             top: 25%;
+
             animation-delay: 2s;
         }
+
         .food4 {
+
             right: 18%;
+
             bottom: 18%;
+
             animation-delay: 3s;
         }
+
         .food5 {
+
             right: 35%;
+
             top: 12%;
+
             animation-delay: 1.5s;
         }
+
 
         /* ==================================================
            MOVING BANNER
         ================================================== */
+
         .moving-banner {
+
             position: absolute;
+
             bottom: 0;
+
             left: 0;
+
             width: 100%;
+
             overflow: hidden;
+
             background: #df8d1b;
+
             padding: 13px 0;
+
             z-index: 10;
         }
+
         .moving-text {
+
             white-space: nowrap;
+
             font-size: 14px;
+
             font-weight: 700;
+
             letter-spacing: 2px;
+
             animation: marquee 20s linear infinite;
         }
+
 
         /* ==================================================
            STORY SECTION
         ================================================== */
+
         .message-section {
+
             padding: 110px 8%;
+
             background: #f5efdf;
         }
+
         .message-container {
+
             max-width: 1200px;
+
             margin: auto;
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 70px;
+
             align-items: center;
         }
+
         .section-label {
+
             color: #d98517;
+
             font-size: 13px;
+
             font-weight: 700;
+
             letter-spacing: 3px;
+
             margin-bottom: 15px;
         }
+
         .message-text h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 55px;
+
             line-height: 1;
+
             margin: 0 0 25px;
         }
+
         .message-text h2 span {
+
             color: #d98618;
         }
+
         .message-text p:not(.section-label) {
+
             color: #686258;
+
             line-height: 1.9;
+
             margin-bottom: 18px;
         }
+
         .orange-button {
+
             display: inline-block;
+
             background: #dc8a19;
+
             color: white;
+
             padding: 14px 24px;
+
             border-radius: 30px;
+
             font-size: 13px;
+
             font-weight: 700;
+
             transition: 0.3s;
+
             border: none;
+
             cursor: pointer;
+
             font-family: 'Poppins', sans-serif;
         }
+
         .orange-button:hover {
+
             transform: translateY(-4px);
+
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
+
 
         /* ==================================================
            FOOD IMAGE
         ================================================== */
+
         .food-image-card {
+
             height: 450px;
+
             position: relative;
+
             border-radius: 4px;
+
             background:
+
                 linear-gradient(
                     rgba(30,20,10,0.1),
                     rgba(30,20,10,0.1)
                 ),
+
                 url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80");
+
             background-size: cover;
+
             background-position: center;
+
             box-shadow: 20px 20px 0 #dc8a19;
         }
+
         .image-small {
+
             position: absolute;
+
             width: 110px;
+
             height: 110px;
+
             background: white;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             font-size: 50px;
+
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
             animation: floating 4s ease-in-out infinite;
         }
+
         .image-small.one {
+
             top: 30px;
+
             right: -25px;
         }
+
         .image-small.two {
+
             bottom: 30px;
+
             left: -25px;
+
             animation-delay: 1s;
         }
+
         .image-caption {
+
             position: absolute;
+
             bottom: 25px;
+
             right: 25px;
+
             background: white;
+
             padding: 17px 23px;
+
             font-size: 13px;
         }
+
 
         /* ==================================================
            QUOTE
         ================================================== */
+
         .quote-section {
+
             padding: 100px 10%;
+
             text-align: center;
+
             background: #211d16;
+
             color: white;
         }
+
         .quote-content {
+
             max-width: 900px;
+
             margin: auto;
         }
+
         .quote-mark {
+
             font-family: Georgia, serif;
+
             font-size: 100px;
+
             color: #e99a27;
+
             height: 70px;
         }
+
         .quote-section h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 52px;
+
             line-height: 1.1;
         }
+
         .quote-section h2 span {
+
             color: #e99a27;
         }
+
         .quote-section p {
+
             color: #bbb;
+
             font-size: 17px;
         }
+
 
         /* ==================================================
            HOW IT WORKS
         ================================================== */
+
         .how-section {
+
             padding: 110px 7%;
+
             background: #faf7ef;
         }
+
         .section-heading {
+
             text-align: center;
+
             max-width: 800px;
+
             margin: auto auto 60px;
         }
+
         .section-heading h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 52px;
+
             line-height: 1.05;
         }
+
         .section-heading h2 span {
+
             color: #da8919;
         }
+
         .steps {
+
             max-width: 1200px;
+
             margin: auto;
+
             display: flex;
+
             align-items: center;
+
             gap: 20px;
         }
+
         .step-card {
+
             flex: 1;
+
             min-height: 280px;
+
             padding: 35px;
+
             background: white;
+
             border: 1px solid #e5dfd2;
+
             transition: 0.4s;
+
             position: relative;
         }
+
         .step-card:hover {
+
             transform: translateY(-10px);
+
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
+
         .step-icon {
+
             font-size: 50px;
+
             margin-bottom: 20px;
         }
+
         .step-number {
+
             position: absolute;
+
             top: 20px;
+
             right: 20px;
+
             color: #d98919;
+
             font-weight: 700;
         }
+
         .step-card h3 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 28px;
         }
+
         .step-card p {
+
             color: #777;
+
             line-height: 1.7;
         }
+
         .step-arrow {
+
             color: #dd8a1a;
+
             font-size: 35px;
+
             animation: arrowMove 1.5s infinite;
         }
+
 
         /* ==================================================
            HUNGER VIDEO SECTION
         ================================================== */
+
         .video-section {
+
             padding: 110px 7%;
+
             background: #eae2d1;
         }
+
         .video-container {
+
             max-width: 1250px;
+
             margin: auto;
+
             display: grid;
+
             grid-template-columns: 0.8fr 1.2fr;
+
             gap: 60px;
+
             align-items: center;
         }
+
         .video-text h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 60px;
+
             line-height: 0.98;
+
             margin: 15px 0 25px;
         }
+
         .video-text h2 span {
+
             color: #d88718;
         }
+
         .video-text p:not(.section-label) {
+
             color: #625d54;
+
             line-height: 1.9;
+
             margin-bottom: 20px;
         }
+
         .video-box {
+
             width: 100%;
+
             aspect-ratio: 16 / 9;
+
             position: relative;
+
             overflow: hidden;
+
             background: #111;
+
             border-radius: 5px;
+
             box-shadow: 18px 18px 0 #d88919;
         }
+
         .video-box iframe {
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             width: 100%;
+
             height: 100%;
+
             border: none;
+
             display: block;
         }
+
         .video-caption {
+
             position: absolute;
+
             bottom: 20px;
+
             left: 20px;
+
             background: rgba(0,0,0,0.78);
+
             color: white;
+
             padding: 11px 17px;
+
             font-size: 12px;
+
             font-weight: 700;
+
             letter-spacing: 1.5px;
+
             pointer-events: none;
         }
+
         .video-caption span {
+
             color: #efa12b;
+
             margin-right: 7px;
         }
+
 
         /* ==================================================
            STUDENT HUNGER MESSAGE
         ================================================== */
+
         .hunger-message {
+
             padding: 100px 8%;
+
             background: #241f18;
+
             color: white;
+
             text-align: center;
         }
+
         .hunger-message h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 58px;
+
             max-width: 900px;
+
             margin: auto;
+
             line-height: 1.05;
         }
+
         .hunger-message h2 span {
+
             color: #e99a27;
         }
+
         .hunger-message p {
+
             max-width: 700px;
+
             margin: 25px auto 0;
+
             color: #bbb3a7;
+
             line-height: 1.8;
+
             font-size: 17px;
         }
+
 
         /* ==================================================
            IMPACT
         ================================================== */
+
         .impact-section {
+
             padding: 110px 7%;
+
             background: #211d16;
+
             color: white;
         }
+
         .light .section-label {
+
             color: #e99a27;
         }
+
         .impact-cards {
+
             max-width: 1150px;
+
             margin: auto;
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
         }
+
         .impact-card {
+
             padding: 40px;
+
             border: 1px solid rgba(255,255,255,0.15);
+
             transition: 0.4s;
         }
+
         .impact-card:hover {
+
             transform: translateY(-8px);
+
             background: rgba(255,255,255,0.05);
         }
+
         .impact-icon {
+
             font-size: 45px;
+
             margin-bottom: 20px;
         }
+
         .impact-card h3 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 28px;
         }
+
         .impact-card p {
+
             color: #aaa;
+
             line-height: 1.8;
         }
+
 
         /* ==================================================
            FOOD STRIP
         ================================================== */
+
         .food-strip {
+
             background: #e79520;
+
             padding: 20px 0;
+
             overflow: hidden;
         }
+
         .food-track {
+
             white-space: nowrap;
+
             font-size: 28px;
+
             animation: marquee 15s linear infinite;
         }
+
 
         /* ==================================================
            DONATION CTA
         ================================================== */
+
         .donate-section {
+
             padding: 120px 7%;
+
             text-align: center;
+
             background:
+
                 linear-gradient(
                     rgba(240,234,218,0.92),
                     rgba(240,234,218,0.92)
                 ),
+
                 url("https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1800&q=80");
+
             background-size: cover;
+
             background-position: center;
         }
+
         .donate-content h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 70px;
+
             line-height: 0.95;
+
             margin: 20px 0;
         }
+
         .donate-content h2 span {
+
             color: #d98718;
         }
+
         .donate-content > p:not(.section-label) {
+
             color: #686258;
+
             font-size: 18px;
+
             margin-bottom: 35px;
         }
+
         .big-donate-button {
+
             border: none;
+
             background: #df8b18;
+
             color: white;
+
             padding: 18px 35px;
+
             border-radius: 40px;
+
             font-size: 15px;
+
             font-weight: 700;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
+
         .big-donate-button:hover {
+
             transform: scale(1.06);
+
             background: #f0a12b;
+
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
+
 
         /* ==================================================
            DONATION FORM
         ================================================== */
+
         .donation-form-section {
+
             padding: 90px 7%;
+
             background: #f5efdf;
         }
+
         .donation-form-container {
+
             max-width: 1100px;
+
             margin: auto;
+
             background: white;
+
             padding: 40px;
+
             border-radius: 8px;
+
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
         }
+
         .donation-form-container h2 {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 52px;
+
             text-align: center;
+
             margin: 0 0 10px;
         }
+
         .donation-form-intro {
+
             text-align: center;
+
             color: #686258;
+
             margin-bottom: 35px;
         }
+
         .donation-grid {
+
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 20px;
         }
+
         .donation-field {
+
             display: flex;
+
             flex-direction: column;
         }
+
         .donation-field.full {
+
             grid-column: 1 / -1;
         }
+
         .donation-field label {
+
             font-size: 13px;
+
             font-weight: 700;
+
             margin-bottom: 8px;
+
             color: #29251f;
         }
+
         .donation-field input {
+
             padding: 14px;
+
             border: 1px solid #ddd3c2;
+
             border-radius: 5px;
+
             font-family: 'Poppins', sans-serif;
+
             font-size: 14px;
+
             background: #faf8f2;
         }
+
         .donation-field input:focus {
+
             outline: none;
+
             border-color: #df8d1b;
+
             box-shadow: 0 0 0 2px rgba(223,141,27,0.12);
         }
+
         .location-box {
+
             margin-top: 22px;
+
             padding: 20px;
+
             background: #faf7ef;
+
             border-left: 4px solid #df8d1b;
         }
+
         .location-box strong {
+
             font-size: 15px;
         }
+
         .location-box p {
+
             color: #686258;
+
             line-height: 1.7;
         }
+
         .api-actions {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 12px;
+
             margin-top: 22px;
         }
+
         .api-actions button {
+
             border: 0;
+
             border-radius: 30px;
+
             padding: 12px 19px;
+
             font-family: 'Poppins', sans-serif;
+
             font-size: 12px;
+
             font-weight: 700;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
+
         .api-actions button:hover {
+
             transform: translateY(-2px);
         }
+
         .save-btn {
+
             background: #df8d1b;
+
             color: white;
         }
+
         .load-btn {
+
             background: #29251f;
+
             color: white;
         }
+
         .copy-btn {
+
             background: #e8dcc7;
+
             color: #29251f;
         }
+
         .notify-btn {
+
             background: #f0b35a;
+
             color: #29251f;
         }
+
         .clear-btn {
+
             background: #eee8dc;
+
             color: #29251f;
         }
+
         .donation-status {
+
             margin-top: 22px;
+
             padding: 16px;
+
             background: #f6f1e5;
+
             color: #514b42;
+
             border-radius: 4px;
+
             line-height: 1.7;
+
             font-size: 13px;
         }
+
         .saved-donation {
+
             margin-top: 18px;
+
             padding: 18px;
+
             background: #faf7ef;
+
             border-left: 4px solid #df8d1b;
+
             line-height: 1.8;
+
             font-size: 13px;
+
             display: none;
         }
+
 
         /* ==================================================
            FOOTER
         ================================================== */
+
         footer {
+
             background: #15130f;
+
             color: white;
+
             text-align: center;
+
             padding: 55px 20px;
         }
+
         .footer-logo {
+
             font-family: 'DM Serif Display', serif;
+
             font-size: 32px;
         }
+
         .footer-logo span {
+
             color: #e99a27;
         }
+
         footer > p {
+
             color: #999;
+
             margin: 10px 0 25px;
         }
+
         .footer-links {
+
             display: flex;
+
             justify-content: center;
+
             gap: 25px;
+
             margin-bottom: 30px;
+
             flex-wrap: wrap;
         }
+
         .footer-links a {
+
             color: #aaa;
+
             font-size: 13px;
         }
+
         .footer-links a:hover {
+
             color: #e99a27;
         }
+
         .copyright {
+
             padding-top: 25px;
+
             border-top: 1px solid #333;
+
             color: #666;
+
             font-size: 12px;
         }
+
 
         /* ==================================================
            ANIMATIONS
         ================================================== */
+
         @keyframes fadeUp {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(30px);
             }
+
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
             }
         }
+
         @keyframes floating {
+
             0% {
+
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
+
                 transform: translateY(-18px) rotate(5deg);
             }
+
             100% {
+
                 transform: translateY(0) rotate(0deg);
             }
         }
+
         @keyframes marquee {
+
             from {
+
                 transform: translateX(0);
             }
+
             to {
+
                 transform: translateX(-50%);
             }
         }
+
         @keyframes arrowMove {
+
             0%, 100% {
+
                 transform: translateX(0);
             }
+
             50% {
+
                 transform: translateX(8px);
             }
         }
 
+
         /* ==================================================
            MOBILE
         ================================================== */
+
         @media (max-width: 768px) {
+
             .navbar {
+
                 padding: 0 20px;
             }
+
             .nav-links {
+
                 display: none;
             }
+
             .hero {
+
                 height: 650px;
             }
+
             .hero h1 {
+
                 font-size: 55px;
             }
+
             .hero-text {
+
                 font-size: 17px;
             }
+
             .message-container {
+
                 grid-template-columns: 1fr;
             }
+
             .video-container {
+
                 grid-template-columns: 1fr;
             }
+
             .message-text h2 {
+
                 font-size: 43px;
             }
+
             .video-text h2 {
+
                 font-size: 45px;
             }
+
             .food-image-card {
+
                 height: 350px;
             }
+
             .steps {
+
                 flex-direction: column;
             }
+
             .step-arrow {
+
                 transform: rotate(90deg);
             }
+
             .impact-cards {
+
                 grid-template-columns: 1fr;
             }
+
             .section-heading h2 {
+
                 font-size: 40px;
             }
+
             .hunger-message h2 {
+
                 font-size: 43px;
             }
+
             .donate-content h2 {
+
                 font-size: 50px;
             }
+
             .video-box {
+
                 width: 100%;
+
                 aspect-ratio: 16 / 9;
             }
+
             .donation-grid {
+
                 grid-template-columns: 1fr;
             }
+
             .donation-field.full {
+
                 grid-column: auto;
             }
+
             .donation-form-container h2 {
+
                 font-size: 40px;
             }
+
             .donation-form-container {
+
                 padding: 25px;
             }
-        }
 
-
-        /* ==================================================
-           EVENT STYLES (ADDED FOR MOUSE EVENTS)
-        ================================================== */
-
-        /* mouseover / mouseout -> impact cards */
-        .impact-card.card-highlight {
-            border-color: #e99a27;
-            background: rgba(233,154,39,0.12);
-            box-shadow: 0 0 25px rgba(233,154,39,0.35);
-        }
-
-        /* dblclick -> how it works cards */
-        .step-card.step-active {
-            background: #fff3dc;
-            border-color: #df8d1b;
-            box-shadow: 0 20px 40px rgba(223,141,27,0.3);
-        }
-
-        /* contextmenu -> donation form */
-        .donation-form-container.right-clicked {
-            box-shadow: 0 0 0 3px #df8d1b, 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        /* mousedown / mouseup -> start donation button */
-        .big-donate-button.pressed {
-            transform: scale(0.94);
-            background: #c47612;
-            box-shadow: inset 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        /* mousemove -> hero floating food parallax */
-        .floating-food {
-            transition: translate 0.15s ease-out;
         }
 
     </style>
+
 </head>
+
 
 <body>
 
     <!-- ==================================================
          NAVBAR
     ================================================== -->
+
     <nav class="navbar">
+
         <div class="logo">
+
             Food<span>Connect</span>
+
         </div>
+
         <div class="nav-links">
+
             <a href="#home">HOME</a>
+
             <a href="#story">OUR STORY</a>
+
             <a href="#how">HOW IT WORKS</a>
+
             <a href="#impact">OUR IMPACT</a>
+
             <a href="#contact">CONTACT</a>
+
         </div>
+
         <a href="#donate" class="nav-button">
+
             DONATE FOOD
+
         </a>
+
     </nav>
 
 
     <!-- ==================================================
          HERO
     ================================================== -->
+
     <section id="home" class="hero">
 
         <div class="floating-food food1">
             🍎
         </div>
+
         <div class="floating-food food2">
             🥖
         </div>
+
         <div class="floating-food food3">
             🥗
         </div>
+
         <div class="floating-food food4">
             🍲
         </div>
+
         <div class="floating-food food5">
             🍞
         </div>
 
         <div class="hero-content">
+
             <p class="small-heading">
+
                 GOOD FOOD SHOULD NEVER GO TO WASTE
+
             </p>
+
             <h1>
+
                 Don't Waste Food.
+
                 <br>
+
                 <span>Share It.</span>
+
             </h1>
+
             <p class="hero-text">
+
                 You made it with care.
+
                 <br>
+
                 Someone out there needs it.
+
             </p>
+
             <div class="hero-buttons">
+
                 <a href="#donate" class="main-button">
+
                     🍽 DONATE LEFTOVER FOOD
+
                 </a>
+
                 <a href="#how" class="outline-button">
+
                     SEE HOW IT WORKS ↓
+
                 </a>
+
             </div>
+
         </div>
 
         <div class="moving-banner">
+
             <div class="moving-text">
+
                 GOOD FOOD • GOOD PEOPLE • LESS WASTE •
                 SHARE A MEAL • FEED A COMMUNITY •
                 EVERY MEAL MATTERS • DON'T WASTE FOOD •
+
             </div>
+
         </div>
 
     </section>
@@ -1006,157 +1677,260 @@
     <!-- ==================================================
          STORY
     ================================================== -->
+
     <section class="message-section" id="story">
+
         <div class="message-container">
 
             <div class="message-text">
+
                 <p class="section-label">
+
                     WHY LET GOOD FOOD GO TO WASTE?
+
                 </p>
+
                 <h2>
+
                     Your leftover
+
                     <span>
                         could be someone's meal.
                     </span>
+
                 </h2>
+
                 <p>
+
                     Restaurants prepare food with time,
                     effort and care. But sometimes there
                     is simply more food than customers.
+
                 </p>
+
                 <p>
+
                     Instead of throwing perfectly edible
                     food away, why not give it to someone
                     who needs it?
+
                 </p>
+
                 <p>
+
                     One extra meal from your restaurant
                     could mean one less hungry person
                     going to sleep without dinner.
+
                 </p>
+
                 <a href="#donate" class="orange-button">
+
                     TURN LEFTOVERS INTO MEALS →
+
                 </a>
+
             </div>
 
             <div class="food-image-card">
+
                 <div class="image-small one">
+
                     🥘
+
                 </div>
+
                 <div class="image-small two">
+
                     🥗
+
                 </div>
+
                 <div class="image-caption">
+
                     <strong>
+
                         ONE MEAL.
+
                     </strong>
+
                     <br>
+
                     ONE LESS WASTE.
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
     <!-- ==================================================
          QUOTE
     ================================================== -->
+
     <section class="quote-section">
+
         <div class="quote-content">
+
             <div class="quote-mark">
+
                 “
+
             </div>
+
             <h2>
+
                 Don't throw away
+
                 <span>
                     what someone else would be grateful for.
                 </span>
+
             </h2>
+
             <p>
+
                 Food is more than something we eat.
                 For someone who is hungry, it can mean
                 comfort, energy and hope.
+
             </p>
+
         </div>
+
     </section>
 
 
     <!-- ==================================================
          HOW IT WORKS
     ================================================== -->
+
     <section id="how" class="how-section">
 
         <div class="section-heading">
+
             <p class="section-label">
+
                 SIMPLE. HUMAN. MEANINGFUL.
+
             </p>
+
             <h2>
+
                 From your kitchen
+
                 <span>
                     to someone's table.
                 </span>
+
             </h2>
+
         </div>
 
         <div class="steps">
 
             <div class="step-card">
+
                 <div class="step-icon">
+
                     🍽️
+
                 </div>
+
                 <span class="step-number">
+
                     01
+
                 </span>
+
                 <h3>
+
                     You Have Extra
+
                 </h3>
+
                 <p>
+
                     Your restaurant has safe,
                     fresh surplus food at the
                     end of the day.
+
                 </p>
+
             </div>
 
             <div class="step-arrow">
+
                 →
+
             </div>
 
             <div class="step-card">
+
                 <div class="step-icon">
+
                     📦
+
                 </div>
+
                 <span class="step-number">
+
                     02
+
                 </span>
+
                 <h3>
+
                     You Share It
+
                 </h3>
+
                 <p>
+
                     Tell us what food is available
                     and how much you can donate.
+
                 </p>
+
             </div>
 
             <div class="step-arrow">
+
                 →
+
             </div>
 
             <div class="step-card">
+
                 <div class="step-icon">
+
                     ❤️
+
                 </div>
+
                 <span class="step-number">
+
                     03
+
                 </span>
+
                 <h3>
+
                     Someone Gets Fed
+
                 </h3>
+
                 <p>
+
                     The food reaches an NGO or
                     community that can put it
                     to good use.
+
                 </p>
+
             </div>
 
         </div>
@@ -1167,149 +1941,242 @@
     <!-- ==================================================
          STUDENT HUNGER VIDEO
     ================================================== -->
+
     <section class="video-section">
+
         <div class="video-container">
 
             <!-- LEFT -->
+
             <div class="video-text">
+
                 <p class="section-label">
+
                     IMAGINE BEING HUNGRY
+
                 </p>
+
                 <h2>
+
                     What if your next meal
+
                     <span>
                         wasn't guaranteed?
                     </span>
+
                 </h2>
+
                 <p>
+
                     For some students, hunger is not
                     something they can simply ignore.
+
                     It can mean going through a class
                     without eating, skipping a meal,
                     or wondering where the next meal
                     will come from.
+
                 </p>
+
                 <p>
+
                     Meanwhile, restaurants may have
                     perfectly edible food left over
                     at the end of the day.
+
                 </p>
+
                 <p>
+
                     <strong>
+
                         What if that extra food could
                         become someone's next meal?
+
                     </strong>
+
                 </p>
+
                 <a
                     href="https://www.youtube.com/watch?v=eX-PMUZYyzo"
                     target="_blank"
                     class="orange-button">
+
                     ▶ WATCH THE STORY
+
                 </a>
+
             </div>
 
+
             <!-- RIGHT VIDEO -->
+
             <div class="video-box">
+
                 <iframe
+
                     src="https://www.youtube.com/embed/eX-PMUZYyzo"
+
                     title="College Students Are Going Hungry"
+
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
                     allowfullscreen>
+
                 </iframe>
+
                 <div class="video-caption">
+
                     <span>▶</span>
+
                     SOMEONE COULD BE WAITING FOR A MEAL.
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
     <!-- ==================================================
          EMOTIONAL MESSAGE
     ================================================== -->
+
     <section class="hunger-message">
+
         <p class="section-label">
+
             EVERY MEAL MATTERS
+
         </p>
+
         <h2>
+
             While one restaurant sees
+
             <span>
                 leftovers...
             </span>
+
             someone else may see
+
             <span>
                 dinner.
             </span>
+
         </h2>
+
         <p>
+
             Don't let good food become waste.
             Let it continue its journey from
             your kitchen to someone who needs it.
+
         </p>
+
     </section>
 
 
     <!-- ==================================================
          IMPACT
     ================================================== -->
+
     <section id="impact" class="impact-section">
 
         <div class="section-heading light">
+
             <p class="section-label">
+
                 EVERY MEAL MATTERS
+
             </p>
+
             <h2>
+
                 A little extra
+
                 <span>
                     can make a big difference.
                 </span>
+
             </h2>
+
         </div>
 
         <div class="impact-cards">
 
             <div class="impact-card">
+
                 <div class="impact-icon">
+
                     🍛
+
                 </div>
+
                 <h3>
+
                     Extra Food
+
                 </h3>
+
                 <p>
+
                     Food that might have ended
                     up in a bin can become
                     someone's dinner.
+
                 </p>
+
             </div>
 
             <div class="impact-card">
+
                 <div class="impact-icon">
+
                     🤝
+
                 </div>
+
                 <h3>
+
                     Shared With Care
+
                 </h3>
+
                 <p>
+
                     Surplus meals can be shared
                     with organizations supporting
                     people in need.
+
                 </p>
+
             </div>
 
             <div class="impact-card">
+
                 <div class="impact-icon">
+
                     🌱
+
                 </div>
+
                 <h3>
+
                     Less Waste
+
                 </h3>
+
                 <p>
+
                     Make the food you produce
                     go further instead of letting
                     it go to waste.
+
                 </p>
+
             </div>
 
         </div>
@@ -1320,173 +2187,267 @@
     <!-- ==================================================
          MOVING FOOD
     ================================================== -->
+
     <section class="food-strip">
+
         <div class="food-track">
+
             🍕 • 🍛 • 🥗 • 🍲 • 🥖 • 🍚 •
             🍎 • 🥘 • 🍞 • 🍜 •
             SHARE FOOD • SHARE HOPE •
             🍕 • 🍛 • 🥗 • 🍲 • 🥖 • 🍚 •
+
         </div>
+
     </section>
 
 
     <!-- ==================================================
          DONATION CTA
     ================================================== -->
+
     <section id="donate" class="donate-section">
+
         <div class="donate-content">
+
             <p class="section-label">
+
                 HAVE SURPLUS FOOD?
+
             </p>
+
             <h2>
+
                 Don't throw it away.
+
                 <br>
+
                 <span>
+
                     Give it away.
+
                 </span>
+
             </h2>
+
             <p>
+
                 Your extra food could be
                 someone's next meal.
+
             </p>
+
             <button
                 class="big-donate-button"
                 onclick="document.getElementById('donation-form').scrollIntoView({behavior:'smooth'})">
+
                 🍽 START A DONATION
+
             </button>
+
         </div>
+
     </section>
 
 
     <!-- ==================================================
          DONATION FORM
     ================================================== -->
+
     <section class="donation-form-section" id="donation-form">
 
         <div class="donation-form-container">
 
             <p class="section-label" style="text-align:center;">
+
                 SHARE YOUR SURPLUS FOOD
+
             </p>
 
             <h2>
+
                 Create a Donation
+
             </h2>
 
             <p class="donation-form-intro">
+
                 Add your food details so the donation
                 can be saved, shared and coordinated easily.
+
             </p>
 
             <div class="donation-grid">
 
                 <div class="donation-field">
+
                     <label for="restaurantName">
+
                         Restaurant Name
+
                     </label>
+
                     <input
                         type="text"
                         id="restaurantName"
                         placeholder="Enter restaurant name">
+
                 </div>
 
+
                 <div class="donation-field">
+
                     <label for="foodType">
+
                         Food Type
+
                     </label>
+
                     <input
                         type="text"
                         id="foodType"
                         placeholder="Example: Rice, Meals, Bread">
+
                 </div>
 
+
                 <div class="donation-field">
+
                     <label for="quantity">
+
                         Quantity (Meals)
+
                     </label>
+
                     <input
                         type="number"
                         id="quantity"
                         min="1"
                         placeholder="Example: 50">
+
                 </div>
 
+
                 <div class="donation-field">
+
                     <label for="pickupTime">
+
                         Pickup Time
+
                     </label>
+
                     <input
                         type="datetime-local"
                         id="pickupTime">
+
                 </div>
 
+
                 <div class="donation-field full">
+
                     <label for="ngoName">
+
                         Preferred NGO / Organization
+
                     </label>
+
                     <input
                         type="text"
                         id="ngoName"
                         placeholder="Optional">
+
                 </div>
 
             </div>
 
+
             <div class="location-box">
+
                 <strong>
+
                     📍 Pickup Location
+
                 </strong>
+
                 <p id="locationText">
+
                     Location not added yet.
+
                 </p>
+
                 <button
                     type="button"
                     class="orange-button"
                     onclick="getLocation()">
+
                     Get Current Location
+
                 </button>
+
             </div>
 
+
             <div class="api-actions">
+
                 <button
                     type="button"
                     class="save-btn"
                     onclick="saveDonation()">
+
                     💾 Save Donation
+
                 </button>
+
                 <button
                     type="button"
                     class="load-btn"
                     onclick="loadDonation()">
+
                     📂 Load Saved Donation
+
                 </button>
+
                 <button
                     type="button"
                     class="copy-btn"
                     onclick="copyDonation()">
+
                     📋 Copy Details
+
                 </button>
+
                 <button
                     type="button"
                     class="notify-btn"
                     onclick="enableNotification()">
+
                     🔔 Enable Reminder
+
                 </button>
+
                 <button
                     type="button"
                     class="clear-btn"
                     onclick="clearDonation()">
+
                     Clear Form
+
                 </button>
+
             </div>
 
+
             <div id="donationStatus" class="donation-status">
+
                 Ready to create a donation.
+
             </div>
+
 
             <div
                 id="savedDonation"
                 class="saved-donation">
+
             </div>
 
         </div>
@@ -1497,40 +2458,59 @@
     <!-- ==================================================
          FOOTER
     ================================================== -->
+
     <footer id="contact">
+
         <div class="footer-logo">
+
             Food<span>Connect</span>
+
         </div>
+
         <p>
+
             Good food. Good people. Less waste.
+
         </p>
+
         <div class="footer-links">
+
             <a href="#home">
                 Home
             </a>
+
             <a href="#story">
                 Our Story
             </a>
+
             <a href="#how">
                 How It Works
             </a>
+
             <a href="#impact">
                 Our Impact
             </a>
+
             <a href="#donate">
                 Donate
             </a>
+
         </div>
+
         <div class="copyright">
+
             © 2026 FoodConnect.
             Share food. Share hope.
+
         </div>
+
     </footer>
 
 
     <!-- ==================================================
-         JAVASCRIPT (ORIGINAL - UNCHANGED)
+         JAVASCRIPT
     ================================================== -->
+
     <script>
 
         let currentLocation = null;
@@ -1539,6 +2519,7 @@
         /* ==================================================
            LOCATION
         ================================================== */
+
         function getLocation() {
 
             const status =
@@ -1548,8 +2529,10 @@
                 document.getElementById("locationText");
 
             if (!navigator.geolocation) {
+
                 status.textContent =
                     "Location is not supported by this browser.";
+
                 return;
             }
 
@@ -1561,27 +2544,38 @@
                 function(position) {
 
                     currentLocation = {
+
                         latitude:
                             position.coords.latitude,
+
                         longitude:
                             position.coords.longitude
+
                     };
 
                     locationText.innerHTML =
+
                         "Latitude: " +
+
                         currentLocation.latitude.toFixed(6) +
+
                         "<br>Longitude: " +
+
                         currentLocation.longitude.toFixed(6);
 
                     status.textContent =
                         "Pickup location added successfully.";
+
                 },
 
                 function() {
+
                     locationText.textContent =
                         "Location permission was not provided.";
+
                     status.textContent =
                         "Please allow location access and try again.";
+
                 }
 
             );
@@ -1592,31 +2586,37 @@
         /* ==================================================
            SAVE DONATION
         ================================================== */
+
         function saveDonation() {
 
             const restaurantName =
+
                 document
                 .getElementById("restaurantName")
                 .value
                 .trim();
 
             const foodType =
+
                 document
                 .getElementById("foodType")
                 .value
                 .trim();
 
             const quantity =
+
                 document
                 .getElementById("quantity")
                 .value;
 
             const pickupTime =
+
                 document
                 .getElementById("pickupTime")
                 .value;
 
             const ngoName =
+
                 document
                 .getElementById("ngoName")
                 .value
@@ -1629,60 +2629,93 @@
                 !quantity ||
                 !pickupTime
             ) {
+
                 document
                     .getElementById("donationStatus")
                     .textContent =
+
                     "Please fill Restaurant Name, Food Type, Quantity and Pickup Time.";
+
                 return;
+
             }
 
 
             const donation = {
+
                 restaurantName:
                     restaurantName,
+
                 foodType:
                     foodType,
+
                 quantity:
                     quantity,
+
                 pickupTime:
                     pickupTime,
+
                 ngoName:
                     ngoName,
+
                 location:
                     currentLocation,
+
                 savedAt:
                     new Date().toLocaleString()
+
             };
 
 
             localStorage.setItem(
+
                 "foodConnectDonation",
+
                 JSON.stringify(donation)
+
             );
 
+
             sessionStorage.setItem(
+
                 "currentFoodConnectDonation",
+
                 JSON.stringify(donation)
+
             );
+
 
             document
                 .getElementById("donationStatus")
                 .textContent =
+
                 "Donation saved successfully.";
+
 
             showDonation(donation);
 
+
             if (
+
                 "Notification" in window &&
+
                 Notification.permission === "granted"
+
             ) {
+
                 new Notification(
+
                     "FoodConnect",
+
                     {
+
                         body:
                             "Your food donation has been saved successfully."
+
                     }
+
                 );
+
             }
 
         }
@@ -1691,67 +2724,95 @@
         /* ==================================================
            LOAD DONATION
         ================================================== */
+
         function loadDonation() {
 
             const saved =
+
                 localStorage.getItem(
                     "foodConnectDonation"
                 );
 
+
             if (!saved) {
+
                 document
                     .getElementById("donationStatus")
                     .textContent =
+
                     "No saved donation was found.";
+
                 return;
+
             }
+
 
             const donation =
                 JSON.parse(saved);
 
+
             document
                 .getElementById("restaurantName")
                 .value =
+
                 donation.restaurantName || "";
+
 
             document
                 .getElementById("foodType")
                 .value =
+
                 donation.foodType || "";
+
 
             document
                 .getElementById("quantity")
                 .value =
+
                 donation.quantity || "";
+
 
             document
                 .getElementById("pickupTime")
                 .value =
+
                 donation.pickupTime || "";
+
 
             document
                 .getElementById("ngoName")
                 .value =
+
                 donation.ngoName || "";
+
 
             if (donation.location) {
 
                 currentLocation =
                     donation.location;
 
+
                 document
                     .getElementById("locationText")
                     .innerHTML =
+
                     "Latitude: " +
+
                     donation.location.latitude.toFixed(6) +
+
                     "<br>Longitude: " +
+
                     donation.location.longitude.toFixed(6);
+
             }
+
 
             document
                 .getElementById("donationStatus")
                 .textContent =
+
                 "Saved donation loaded successfully.";
+
 
             showDonation(donation);
 
@@ -1761,35 +2822,42 @@
         /* ==================================================
            COPY DONATION DETAILS
         ================================================== */
+
         function copyDonation() {
 
             const restaurantName =
+
                 document
                 .getElementById("restaurantName")
                 .value
                 .trim();
 
             const foodType =
+
                 document
                 .getElementById("foodType")
                 .value
                 .trim();
 
             const quantity =
+
                 document
                 .getElementById("quantity")
                 .value;
 
             const pickupTime =
+
                 document
                 .getElementById("pickupTime")
                 .value;
 
             const ngoName =
+
                 document
                 .getElementById("ngoName")
                 .value
                 .trim();
+
 
             if (
                 !restaurantName ||
@@ -1797,56 +2865,88 @@
                 !quantity ||
                 !pickupTime
             ) {
+
                 document
                     .getElementById("donationStatus")
                     .textContent =
+
                     "Fill the donation details before copying.";
+
                 return;
+
             }
 
+
             let details =
+
                 "FoodConnect Donation\n" +
+
                 "Restaurant: " +
                 restaurantName +
+
                 "\nFood: " +
                 foodType +
+
                 "\nQuantity: " +
                 quantity +
                 " meals" +
+
                 "\nPickup: " +
                 pickupTime +
+
                 "\nNGO: " +
                 (ngoName || "Not specified");
 
+
             if (currentLocation) {
+
                 details +=
+
                     "\nLatitude: " +
+
                     currentLocation.latitude +
+
                     "\nLongitude: " +
+
                     currentLocation.longitude;
+
             }
 
+
             if (!navigator.clipboard) {
+
                 document
                     .getElementById("donationStatus")
                     .textContent =
+
                     "Copying is not supported by this browser.";
+
                 return;
+
             }
+
 
             navigator.clipboard
                 .writeText(details)
+
                 .then(function() {
+
                     document
                         .getElementById("donationStatus")
                         .textContent =
+
                         "Donation details copied to clipboard.";
+
                 })
+
                 .catch(function() {
+
                     document
                         .getElementById("donationStatus")
                         .textContent =
+
                         "Could not copy the details.";
+
                 });
 
         }
@@ -1855,41 +2955,58 @@
         /* ==================================================
            NOTIFICATIONS
         ================================================== */
+
         function enableNotification() {
 
             if (!("Notification" in window)) {
+
                 document
                     .getElementById("donationStatus")
                     .textContent =
+
                     "Notifications are not supported by this browser.";
+
                 return;
+
             }
+
 
             Notification
                 .requestPermission()
+
                 .then(function(permission) {
 
                     if (permission === "granted") {
 
                         new Notification(
+
                             "FoodConnect",
+
                             {
+
                                 body:
                                     "Notifications are enabled for your donation."
+
                             }
+
                         );
 
                         document
                             .getElementById("donationStatus")
                             .textContent =
+
                             "Notifications enabled successfully.";
+
                     }
 
                     else {
+
                         document
                             .getElementById("donationStatus")
                             .textContent =
+
                             "Notification permission was not granted.";
+
                     }
 
                 });
@@ -1900,9 +3017,11 @@
         /* ==================================================
            DISPLAY SAVED DONATION
         ================================================== */
+
         function showDonation(donation) {
 
             const box =
+
                 document
                 .getElementById("savedDonation");
 
@@ -1910,28 +3029,43 @@
                 "block";
 
             box.innerHTML =
+
                 "<strong>Saved Donation</strong><br>" +
+
                 "Restaurant: " +
+
                 escapeHTML(
                     donation.restaurantName
                 ) +
+
                 "<br>" +
+
                 "Food: " +
+
                 escapeHTML(
                     donation.foodType
                 ) +
+
                 "<br>" +
+
                 "Quantity: " +
+
                 escapeHTML(
                     String(donation.quantity)
                 ) +
+
                 " meals<br>" +
+
                 "Pickup: " +
+
                 escapeHTML(
                     donation.pickupTime
                 ) +
+
                 "<br>" +
+
                 "NGO: " +
+
                 escapeHTML(
                     donation.ngoName ||
                     "Not specified"
@@ -1943,6 +3077,7 @@
         /* ==================================================
            CLEAR FORM
         ================================================== */
+
         function clearDonation() {
 
             document
@@ -1970,16 +3105,19 @@
             document
                 .getElementById("locationText")
                 .textContent =
+
                 "Location not added yet.";
 
             document
                 .getElementById("savedDonation")
                 .style.display =
+
                 "none";
 
             document
                 .getElementById("donationStatus")
                 .textContent =
+
                 "Form cleared.";
 
         }
@@ -1988,25 +3126,31 @@
         /* ==================================================
            SECURITY
         ================================================== */
+
         function escapeHTML(value) {
 
             return value
+
                 .replace(
                     /&/g,
                     "&amp;"
                 )
+
                 .replace(
                     /</g,
                     "&lt;"
                 )
+
                 .replace(
                     />/g,
                     "&gt;"
                 )
+
                 .replace(
                     /"/g,
                     "&quot;"
                 )
+
                 .replace(
                     /'/g,
                     "&#039;"
@@ -2016,151 +3160,8 @@
 
     </script>
 
-
-    <!-- ==================================================
-         MOUSE EVENTS (ADDED - 7 EVENTS)
-    ================================================== -->
-    <script>
-
-        const eventStatus =
-            document.getElementById("donationStatus");
-
-
-        /* --------------------------------------------------
-           1. mouseover  -> IMPACT CARDS
-           Hovering an impact card highlights it.
-        -------------------------------------------------- */
-        document.querySelectorAll(".impact-card").forEach(function(card) {
-
-            card.addEventListener("mouseover", function() {
-                card.classList.add("card-highlight");
-            });
-
-
-            /* ----------------------------------------------
-               2. mouseout  -> IMPACT CARDS
-               Leaving the card returns it to normal.
-            ---------------------------------------------- */
-            card.addEventListener("mouseout", function() {
-                card.classList.remove("card-highlight");
-            });
-
-        });
-
-
-        /* --------------------------------------------------
-           3. dblclick  -> HOW IT WORKS CARDS
-           Double-clicking a step card toggles an active state.
-        -------------------------------------------------- */
-        document.querySelectorAll(".step-card").forEach(function(card) {
-
-            card.addEventListener("dblclick", function() {
-
-                card.classList.toggle("step-active");
-
-                const title =
-                    card.querySelector("h3").textContent.trim();
-
-                eventStatus.textContent =
-                    card.classList.contains("step-active")
-                    ? "Step selected: " + title
-                    : "Step deselected: " + title;
-
-            });
-
-        });
-
-
-        /* --------------------------------------------------
-           4. contextmenu  -> DONATION FORM
-           Right-clicking the form shows a tip instead of
-           the browser menu.
-        -------------------------------------------------- */
-        const donationFormBox =
-            document.querySelector(".donation-form-container");
-
-        donationFormBox.addEventListener("contextmenu", function(e) {
-
-            e.preventDefault();
-
-            donationFormBox.classList.add("right-clicked");
-
-            eventStatus.textContent =
-                "Tip: fill in all details, then use Save Donation or Copy Details.";
-
-            setTimeout(function() {
-                donationFormBox.classList.remove("right-clicked");
-            }, 1200);
-
-        });
-
-
-        /* --------------------------------------------------
-           5. mousedown  -> START A DONATION BUTTON
-           Pressing the button shows a pushed-in effect.
-        -------------------------------------------------- */
-        const startDonationBtn =
-            document.querySelector(".big-donate-button");
-
-        startDonationBtn.addEventListener("mousedown", function() {
-            startDonationBtn.classList.add("pressed");
-        });
-
-
-        /* --------------------------------------------------
-           6. mouseup  -> START A DONATION BUTTON
-           Releasing the mouse button removes the pressed effect.
-        -------------------------------------------------- */
-        startDonationBtn.addEventListener("mouseup", function() {
-            startDonationBtn.classList.remove("pressed");
-        });
-
-        startDonationBtn.addEventListener("mouseleave", function() {
-            startDonationBtn.classList.remove("pressed");
-        });
-
-
-        /* --------------------------------------------------
-           7. mousemove  -> HERO SECTION
-           Floating food emojis shift slightly with the mouse.
-        -------------------------------------------------- */
-        const heroSection =
-            document.querySelector(".hero");
-
-        const heroFoods =
-            document.querySelectorAll(".floating-food");
-
-        heroSection.addEventListener("mousemove", function(e) {
-
-            const rect =
-                heroSection.getBoundingClientRect();
-
-            const x =
-                (e.clientX - rect.left) / rect.width - 0.5;
-
-            const y =
-                (e.clientY - rect.top) / rect.height - 0.5;
-
-            heroFoods.forEach(function(food, index) {
-
-                const depth = (index + 1) * 8;
-
-                food.style.translate =
-                    (x * depth) + "px " + (y * depth) + "px";
-
-            });
-
-        });
-
-        heroSection.addEventListener("mouseleave", function() {
-
-            heroFoods.forEach(function(food) {
-                food.style.translate = "0px 0px";
-            });
-
-        });
-
-    </script>
-
 </body>
+
 </html>
+```
+
